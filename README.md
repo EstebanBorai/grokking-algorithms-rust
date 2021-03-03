@@ -1,6 +1,6 @@
 <div>
   <div align="center" style="display: block; text-align: center;">
-    <img src="https://www.manning.com/assets/grokkingAlgorithms/ga_2-4c16583f91d9dfc02775054018e3997d.png" height="120" />
+    <img src="./assets/artwork.png" height="120" />
   </div>
   <h1 align="center">grokking-algorithms-rust</h1>
   <h4 align="center">
@@ -16,7 +16,9 @@
 
 </div>
 
-# Algorithms
+# Contents
 
 - [Binary Search](./src/binary_search.rs)
 - [Selection Sort](./src/selection_sort.rs)
+- [Find Max (Recursive)](./src/find_max_recursive.rs)
+- [Sum (Recursive)](./src/sum_recursive.rs)
