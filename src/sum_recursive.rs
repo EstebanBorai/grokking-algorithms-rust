@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 fn sum_recursive(coll: &Vec<u32>) -> u32 {
     if coll.len() == 0 {
         return 0;

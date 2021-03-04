@@ -1,5 +1,6 @@
 use std::cmp::Ordering;
 
+#[allow(dead_code)]
 fn binary_search<T>(items: Vec<T>, value: T) -> Option<usize>
 where
     T: std::cmp::Ord,

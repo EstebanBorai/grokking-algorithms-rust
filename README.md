@@ -22,3 +22,4 @@
 - [Selection Sort](./src/selection_sort.rs)
 - [Find Max (Recursive)](./src/find_max_recursive.rs)
 - [Sum (Recursive)](./src/sum_recursive.rs)
+- [Quicksort](./src/quicksort.rs)

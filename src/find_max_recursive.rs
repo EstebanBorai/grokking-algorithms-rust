@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 fn find_max_recursive(coll: &Vec<i32>) -> i32 {
     if coll.len() == 0 {
         return 0;

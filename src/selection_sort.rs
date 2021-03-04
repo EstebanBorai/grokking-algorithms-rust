@@ -15,6 +15,7 @@ where
     smallest_index
 }
 
+#[allow(dead_code)]
 pub fn selection_sort<T>(collection: &Vec<T>) -> Vec<T>
 where
     T: std::cmp::Ord + std::fmt::Display + std::clone::Clone,
