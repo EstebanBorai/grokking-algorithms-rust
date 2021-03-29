@@ -7,41 +7,55 @@
 /// achieves good performance. For real life situations a `VecDeque`
 /// from `std::collections` is a better choice.
 #[allow(dead_code)]
-struct Queue<T> {
+pub struct Queue<T>
+where
+    T: Clone,
+{
     coll: Vec<T>,
 }
 
-impl<T> Queue<T> {
+impl<T> Queue<T>
+where
+    T: Clone,
+{
     /// Creates a new instance of an empty Queue
-    fn new() -> Self {
+    pub fn new() -> Self {
         Queue { coll: Vec::new() }
     }
 
     /// Appends an element to the Queue
-    fn enqueue(&mut self, item: T) {
+    pub fn enqueue(&mut self, item: T) {
         self.coll.push(item);
     }
 
+    pub fn enqueue_many(&mut self, coll: &Vec<T>) {
+        let coll = coll.to_owned();
+
+        for item in coll.into_iter() {
+            self.enqueue(item);
+        }
+    }
+
     /// Takes the next element from the Queue
-    fn dequeue(&mut self) -> T {
+    pub fn dequeue(&mut self) -> T {
         self.coll.remove(0)
     }
 
     /// Retrieves the number of elements conforming the Queue
-    fn length(&self) -> usize {
+    pub fn length(&self) -> usize {
         self.coll.len()
     }
 
     /// Peeks the next element from the Queue.
     /// This is similar to calling `dequeue` but
     /// without moving the value from the Queue
-    fn peek(&self) -> Option<&T> {
+    pub fn peek(&self) -> Option<&T> {
         self.coll.get(0)
     }
 
     /// Returns `true` if the Queue is empty otherwise
     /// returns `false`
-    fn is_empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool {
         self.coll.is_empty()
     }
 }
