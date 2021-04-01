@@ -1,5 +1,6 @@
 mod binary_search;
 mod breadth_first_search;
+mod dijkstras;
 mod find_max_recursive;
 mod queue;
 mod quicksort;
