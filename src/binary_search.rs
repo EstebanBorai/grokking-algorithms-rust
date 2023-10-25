@@ -1,35 +1,22 @@
 use std::cmp::Ordering;
 
-#[allow(dead_code)]
-fn binary_search<T>(items: Vec<T>, value: T) -> Option<usize>
+#[warn(dead_code)]
+fn binary_search<T>(list: Vec<T>, item: T) -> Option<usize>
 where
     T: std::cmp::Ord,
 {
-    if items.is_empty() {
-        // Avoid running if no items are provided
+    if list.is_empty() {
         return None;
-    }
+    };
+    let (mut low, mut high) = (0, list.len() - 1);
 
-    let (mut start, mut end) = (0, items.len() - 1);
+    while low < high {
+        let mid = (low + high) / 2;
 
-    loop {
-        let idx = (start + end) / 2;
-        let attempt = items.get(idx).unwrap();
-
-        if start > end {
-            break;
-        }
-
-        match attempt.cmp(&value) {
-            Ordering::Greater => {
-                end = idx - 1;
-            }
-            Ordering::Less => {
-                start = idx + 1;
-            }
-            Ordering::Equal => {
-                return Some(idx);
-            }
+        match list[mid].cmp(&item) {
+            Ordering::Greater => high = mid,
+            Ordering::Less => low = mid + 1,
+            Ordering::Equal => return Some(mid),
         }
     }
 
