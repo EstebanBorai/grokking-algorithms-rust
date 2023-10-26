@@ -41,10 +41,7 @@ impl<N> PartialEq for Visit<N> {
 impl<N> Eq for Visit<N> {}
 
 #[allow(dead_code)]
-fn dijkstra<'a>(
-    start: Node<'a>,
-    graph: &WeightedGraph<'a>,
-) -> HashMap<Node<'a>, usize> {
+fn dijkstra<'a>(start: Node<'a>, graph: &WeightedGraph<'a>) -> HashMap<Node<'a>, usize> {
     let mut distances: HashMap<Node, usize> = HashMap::new();
     let mut visited: HashSet<Node> = HashSet::new();
     let mut to_visit: BinaryHeap<Visit<Node>> = BinaryHeap::new();
