@@ -22,6 +22,7 @@ Name | Description
 --- | ---
 [Binary Search](./src/binary_search.rs) | Search algorithm used to find elements in sorted lists
 [Selection Sort](./src/selection_sort.rs) | Search algorithms used to find element in unsorted lists
+[Quick Sort](./src/quicksort.rs) | Sorting algorithm that uses the divide and conquer approach
 [Find Max (Recursive)](./src/find_max_recursive.rs) | Finds the maximum value on a collection using a recursive approach
 [Sum (Recursive)](./src/sum_recursive.rs) | Sums elements in a collection using a recursive approach
 [Queue](./src/queue.rs) | A FIFO data structure
