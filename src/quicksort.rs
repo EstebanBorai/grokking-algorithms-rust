@@ -26,14 +26,15 @@ where
     let pivot = coll_clone.first().unwrap();
 
     let less_than_pivot: Vec<T> = quicksort(&coll.iter().filter(|i| *i < pivot).cloned().collect());
+    let equal_to_pivot: Vec<T> = coll.iter().filter(|i| *i == pivot).cloned().collect();
     let mut greater_than_pivot: Vec<T> =
         quicksort(&coll.iter().filter(|i| *i > pivot).cloned().collect());
 
     // Start building the result with the elements less than the pivot
     let mut result = less_than_pivot;
 
-    // Add the pivot to the result
-    result.push(*pivot);
+    // Add the elements equal to the pivot to the result
+    result.extend(equal_to_pivot);
     // Add the elements greater than the pivot to the result
     result.append(&mut greater_than_pivot);
 
