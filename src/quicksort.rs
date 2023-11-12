@@ -23,29 +23,18 @@ where
     // This is the recursive case where we plan
     // to minimize the size of the problem thus
     // applying a D&C mindset
-    let pivot = coll_clone.get(0).unwrap();
-    let mut less_than_pivot: Vec<T> = quicksort(
-        &coll_clone
-            .clone()
-            .into_iter()
-            .filter(|i| *i < *pivot)
-            .collect::<Vec<T>>(),
-    );
-    let greather_than_pivot: Vec<T> = quicksort(
-        &coll_clone
-            .clone()
-            .into_iter()
-            .filter(|i| *i > *pivot)
-            .collect::<Vec<T>>(),
-    );
+    let pivot = coll_clone.first().unwrap();
 
-    less_than_pivot.push(*pivot);
+    let less_than_pivot: Vec<T> = quicksort(&coll.iter().filter(|i| *i < pivot).cloned().collect());
+    let mut greater_than_pivot: Vec<T> =
+        quicksort(&coll.iter().filter(|i| *i > pivot).cloned().collect());
 
-    less_than_pivot
-        .iter()
-        .chain(greather_than_pivot.iter())
-        .copied()
-        .collect()
+    let mut result = less_than_pivot;
+
+    result.push(*pivot);
+    result.append(&mut greater_than_pivot);
+
+    result
 }
 
 #[cfg(test)]
