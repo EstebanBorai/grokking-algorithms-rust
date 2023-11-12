@@ -52,4 +52,12 @@ mod tests {
 
         assert_eq!(result, vec![2, 4, 5, 6, 7, 8, 10]);
     }
+
+    #[test]
+    fn sorts_a_collection_with_repeated_elements() {
+        let items = vec![8, 2, 4, 6, 5, 7, 10, 8];
+        let result = quicksort(&items);
+
+        assert_eq!(result, vec![2, 4, 5, 6, 7, 8, 8, 10]);
+    }
 }
